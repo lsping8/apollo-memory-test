@@ -7,6 +7,13 @@ const typeDefs = gql`
     value1: String
     value2: String
     value3: String
+    value4: String
+    value5: String
+    value6: String
+    value7: String
+    value8: String
+    value9: String
+    value0: String
   }
 
   type Test {
@@ -45,7 +52,14 @@ const getPayload = () => {
     payload[`key${i}`] = {
       value1: Math.random().toFixed(21),
       value2: Math.random().toFixed(21),
-      value3: Math.random().toFixed(21)
+      value3: Math.random().toFixed(21),
+      value4: Math.random().toFixed(21),
+      value5: Math.random().toFixed(21),
+      value6: Math.random().toFixed(21),
+      value7: Math.random().toFixed(21),
+      value8: Math.random().toFixed(21),
+      value9: Math.random().toFixed(21),
+      value0: Math.random().toFixed(21),
     }
   }
 
@@ -63,7 +77,7 @@ const resolvers = {
         const payload = getPayload()
         setInterval(() => {
           pubsub.publish('POST_CREATED', { subTest: getPayload() });
-        },100)
+        },10)
         return payload
       }
     },
